@@ -1,0 +1,7 @@
+FROM alpine
+RUN apk add --no-cache git make
+WORKDIR /usr/src/app
+ONBUILD COPY . /usr/src/app/
+ONBUILD RUN git submodule init \
+&& git submodule update \
+&& make

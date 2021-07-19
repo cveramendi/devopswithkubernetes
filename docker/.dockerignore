@@ -1,0 +1,8 @@
+# ignore .dockerignore, .git
+.dockerignore
+.git
+# exclude all *.tmp files and vim swp file recursively
+**/*.tmp
+**/[._]*.s[a-w][a-z]
+# exclude all markdown files except README*.md
+!README*.md

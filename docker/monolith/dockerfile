@@ -1,0 +1,12 @@
+FROM ubuntu
+ADD . /proj
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y redis-server python python3-pip mysql-server
+ADD /proj/db/my.cnf /etc/mysql/my.cnf
+ADD /proj/db/redis.conf /etc/redis/redis.conf
+ADD https://example.com/otherteam/dep.tgz /tmp/
+RUN -zxf /tmp/dep.tgz -C /usr/src
+RUN pip install -r /proj/app/requirements.txt
+RUN cd /proj/app ; python setup.py
+CMD /proj/start-all-service.sh

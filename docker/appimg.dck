@@ -1,0 +1,3 @@
+FROM baseimg
+EXPOSE 80
+CMD ["/usr/src/app/entry"]
