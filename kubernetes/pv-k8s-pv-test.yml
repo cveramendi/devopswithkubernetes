@@ -1,0 +1,13 @@
+apiVersion: "v1"
+kind: "PersistentVolume"
+metadata:
+  name: pv-1
+spec:
+  storageClassName: "my-10g-pv-1"
+  capacity:
+    storage: "10Gi"
+  accessModes:
+    - "ReadWriteOnce"
+  awsElasticBlockStore:
+    volumeID: vol-02993dd2fa8f4f05c
+    fsType: ext4
