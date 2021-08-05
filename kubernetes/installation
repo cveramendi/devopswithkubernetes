@@ -1,0 +1,7052 @@
+
+
+
+<!-- Set this_pages_navbar  -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!Doctype html>
+<html lang="en">
+  <head>
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+        h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document.documentElement,'async-hide','dataLayer',4000,
+        {'GTM-5FQ2QV4':true});</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:version" content="v3.20">
+    
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;ver=5.3.2" rel="stylesheet" media="all">    
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Mono' type='text/css'>
+    
+    <link href="https://www.projectcalico.org/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/font-awesome/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/instantsearch/instantsearch.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <script src="/js/jquery-2.2.0.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/js/algoliasearch/algoliasearch.min.js"></script>
+    <script src="/js/instantsearch/instantsearch.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script defer src="/js/scrollPage.js"></script>
+
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/code-select.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52125893-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5FQ2QV4');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Kubernetes</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Kubernetes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Get Calico up and running in your Kubernetes cluster." />
+<meta property="og:description" content="Get Calico up and running in your Kubernetes cluster." />
+<link rel="canonical" href="https://docs.projectcalico.org/getting-started/kubernetes/" />
+<meta property="og:url" content="https://docs.projectcalico.org/getting-started/kubernetes/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Kubernetes" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Kubernetes","url":"https://docs.projectcalico.org/getting-started/kubernetes/","description":"Get Calico up and running in your Kubernetes cluster.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FQ2QV4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <section>
+      
+      <nav id="toplevel-nav" class="navbar navbar-default navbar-fixed-top navbar-os">
+	<div class="container-fluid tigera-navbar-header-container">
+		<div class="navbar-header">
+			<!-- Hamburger menu for mobile -->
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tigera-navbar-header" aria-expanded="false" aria-controls="tigera-navbar-header">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- Left brand image -->
+			<a class="navbar-brand" href="https://www.tigera.io/">
+				<img alt="Tigera" src="/images/tigera-logo.png" class="navbar-brand__tigera-logo">
+			</a>
+		</div>
+		<div id="tigera-navbar-header" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-left">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span>About</span>
+						<span class="glyphicon glyphicon-menu-down sub-arrow" aria-hidden="true"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-left">
+							<li><a href="https://www.tigera.io/about/">About</a></li>
+							<li><a href="https://www.tigera.io/tigera-products/why-calico/">Why Calico?</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid tigera-navbar-footer-container">
+		<div class="navbar-header">
+			<!-- Hamburger menu for mobile -->
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tigera-navbar-footer" aria-expanded="false" aria-controls="tigera-navbar-footer">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- Left brand image -->
+			<a class="navbar-brand" href="https://www.tigera.io/project-calico/">
+				<img alt="Calico" src="/images/calico-logo.svg" class="navbar-brand__calico-logo">
+			</a>
+		</div>
+		<div id="tigera-navbar-footer" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-left">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span>Editions</span>
+						<span class="glyphicon glyphicon-menu-down sub-arrow" aria-hidden="true"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-left">
+							<li>
+								<a href="https://www.tigera.io/tigera-products/calico/">
+									<span class="tigera-navbar-item-icon icon-calico-os"></span>
+									<span>Calico Open Source</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.tigera.io/tigera-products/calico-cloud/">
+									<span class="tigera-navbar-item-icon icon-calico-cloud"></span>
+									<span>Calico Cloud</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.tigera.io/tigera-products/calico-enterprise/">
+									<span class="tigera-navbar-item-icon icon-calico-enterprise"></span>
+									<span>Calico Enterprise</span>
+								</a>
+							</li>
+					</ul>
+				</li>
+				<li><a data-proofer-ignore href="/releases">Releases</a></li>
+				<li><a href="https://www.tigera.io/project-calico/community/">Community</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span>Support</span>
+						<span class="glyphicon glyphicon-menu-down sub-arrow" aria-hidden="true"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-left">
+							<li><a href="https://www.tigera.io/project-calico/community/">Community Support</a></li>
+							<li><a href="https://www.tigera.io/security-bulletins/">Security Bulletins</a></li>
+							<li><a href="https://www.tigera.io/vulnerability-disclosure/">Report Security Issue</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.tigera.io/blog/">Blog</a></li>
+				<li><a href="https://github.com/projectcalico/calico">GitHub</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span>Learn</span>
+						<span class="glyphicon glyphicon-menu-down sub-arrow" aria-hidden="true"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-left">
+							<li><a href="https://www.tigera.io/lp/calico-certification/">Certification</a></li>
+							<li><a href="https://www.tigera.io/events/">Events</a></li>
+							<li><a href="https://www.tigera.io/resources/">Resources</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.tigera.io/lp/calico-certification" class="get-certified">Get Certified</a></li>              
+			</ul>
+			<form class="navbar-form visible-xs">
+				<ul class="nav navbar-nav navbar-right">
+					
+						<li >
+							<a href="/about/">About</a>
+						</li>
+					
+						<li  class="active">
+							<a href="/getting-started/">Install Calico</a>
+						</li>
+					
+						<li >
+							<a href="/networking/">Networking</a>
+						</li>
+					
+						<li >
+							<a href="/security/">Security</a>
+						</li>
+					
+						<li >
+							<a href="/maintenance/">Operations</a>
+						</li>
+					
+						<li >
+							<a href="/reference/">Reference</a>
+						</li>
+					
+						<li >
+							<a href="/release-notes/">Release notes</a>
+						</li>
+					
+						<li >
+							<a href="/calico-enterprise/">Calico Enterprise</a>
+						</li>
+					
+				</ul>
+			</form>
+		</div>
+	</div>
+</nav>
+      
+      <div class="container-fluid">
+        <div class="row-offcanvas row-offcanvas-left main-content no-toc">
+          <div class="sidebar-container sidebar-offcanvas">
+            <div class="sidebar">
+              <div class="search">
+                <div class="search-input-container" data-toggle="popover" data-placement="bottom"></div>
+                <div class="search-container">
+                  <div class="search-container__results"></div>
+                  <div class="search-container__pagination"></div>
+                </div>
+                <div class="search-powered-by" ></div>
+              </div>
+              <div id="sidebar">
+                <div class="panel-group" id="sidebar-accordion">
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading"
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-about-"
+                        aria-controls="navbar-about-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/about/" class="navbar-title--not-clickable">
+                              <span>About</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-about-" class="panel-collapse collapse ">
+                          
+                            <div class="panel-body">
+                                
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Calico" href="/about/about-calico">
+      Calico
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Networking" href="/about/about-networking">
+      Networking
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes Networking" href="/about/about-kubernetes-networking">
+      Kubernetes Networking
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Network Policy" href="/about/about-network-policy">
+      Network Policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes Services" href="/about/about-kubernetes-services">
+      Kubernetes Services
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes Ingress" href="/about/about-kubernetes-ingress">
+      Kubernetes Ingress
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes Egress" href="/about/about-kubernetes-egress">
+      Kubernetes Egress
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="eBPF" href="/about/about-ebpf">
+      eBPF
+    </a>
+  
+    </div>
+  
+
+
+                            </div> 
+                          
+                      </div>
+                    </div>
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading current-page "
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-getting-started-"
+                        aria-controls="navbar-getting-started-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/getting-started/" class="navbar-title--not-clickable">
+                              <span>Install Calico</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-getting-started-" class="panel-collapse collapse in">
+                          
+                            <div class="panel-body">
+                                
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Kubernetes" href="/getting-started/kubernetes/">
+      Kubernetes
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Quickstart" href="/getting-started/kubernetes/quickstart">
+      Quickstart
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-managedpubliccloud"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-managedpubliccloud"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Managed public cloud" href="/getting-started/kubernetes/managed-public-cloud/">
+      Managed public cloud
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-managedpubliccloud">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Amazon Elastic Kubernetes Service (EKS)" href="/getting-started/kubernetes/managed-public-cloud/eks">
+      Amazon Elastic Kubernetes Service (EKS)
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Google Kubernetes Engine (GKE)" href="/getting-started/kubernetes/managed-public-cloud/gke">
+      Google Kubernetes Engine (GKE)
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="IBM Cloud Kubernetes Service (IKS)" href="/getting-started/kubernetes/managed-public-cloud/iks">
+      IBM Cloud Kubernetes Service (IKS)
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Microsoft Azure Kubernetes Service (AKS)" href="/getting-started/kubernetes/managed-public-cloud/aks">
+      Microsoft Azure Kubernetes Service (AKS)
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-self-managedpubliccloud"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-self-managedpubliccloud"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Self-managed public cloud" href="/getting-started/kubernetes/self-managed-public-cloud/">
+      Self-managed public cloud
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-self-managedpubliccloud">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Self-managed Kubernetes in AWS" href="/getting-started/kubernetes/self-managed-public-cloud/aws">
+      Self-managed Kubernetes in AWS
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Self-managed Kubernetes in GCE" href="/getting-started/kubernetes/self-managed-public-cloud/gce">
+      Self-managed Kubernetes in GCE
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Self-managed Kubernetes in Azure" href="/getting-started/kubernetes/self-managed-public-cloud/azure">
+      Self-managed Kubernetes in Azure
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Self-managed Kubernetes in DigitalOcean" href="/getting-started/kubernetes/self-managed-public-cloud/do">
+      Self-managed Kubernetes in DigitalOcean
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-self-managedon-premises"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-self-managedon-premises"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Self-managed on-premises" href="/getting-started/kubernetes/self-managed-onprem/">
+      Self-managed on-premises
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-self-managedon-premises">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install Calico for on-premises deployments" href="/getting-started/kubernetes/self-managed-onprem/onpremises">
+      Install Calico for on-premises deployments
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Customize manifests" href="/getting-started/kubernetes/installation/config-options">
+      Customize manifests
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-openshift"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-openshift"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="OpenShift" href="/getting-started/openshift/">
+      OpenShift
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-openshift">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="System requirements" href="/getting-started/openshift/requirements">
+      System requirements
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Installation" href="/getting-started/openshift/installation">
+      Installation
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-flannel"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-flannel"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Flannel" href="/getting-started/kubernetes/flannel/">
+      Flannel
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-flannel">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install Calico for policy and flannel for networking" href="/getting-started/kubernetes/flannel/flannel">
+      Install Calico for policy and flannel for networking
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Migrate a cluster from flannel networking to Calico networking" href="/getting-started/kubernetes/flannel/migration-from-flannel">
+      Migrate a cluster from flannel networking to Calico networking
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-calicoforwindows"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-calicoforwindows"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Calico for Windows" href="/getting-started/windows-calico/">
+      Calico for Windows
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-calicoforwindows">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Limitations and known issues" href="/getting-started/windows-calico/limitations">
+      Limitations and known issues
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Quickstart" href="/getting-started/windows-calico/quickstart">
+      Quickstart
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Basic policy demo" href="/getting-started/windows-calico/demo">
+      Basic policy demo
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-calicoforwindows-kubernetes"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-calicoforwindows-kubernetes"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Kubernetes" href="/getting-started/windows-calico/kubernetes/">
+      Kubernetes
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-calicoforwindows-kubernetes">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Requirements" href="/getting-started/windows-calico/kubernetes/requirements">
+      Requirements
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install Calico for Windows" href="/getting-started/windows-calico/kubernetes/standard">
+      Install Calico for Windows
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install Calico for Windows on Rancher RKE" href="/getting-started/windows-calico/kubernetes/rancher">
+      Install Calico for Windows on Rancher RKE
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-calicoforwindows-openshift"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-calicoforwindows-openshift"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="OpenShift" href="/getting-started/windows-calico/openshift/">
+      OpenShift
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-calicoforwindows-openshift">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install Calico for Windows on OpenShift" href="/getting-started/windows-calico/openshift/installation">
+      Install Calico for Windows on OpenShift
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Create kubeconfig for Windows nodes" href="/getting-started/windows-calico/kubeconfig">
+      Create kubeconfig for Windows nodes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Start and stop Calico for Windows services" href="/getting-started/windows-calico/maintain">
+      Start and stop Calico for Windows services
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Troubleshoot Calico for Windows" href="/getting-started/windows-calico/troubleshoot">
+      Troubleshoot Calico for Windows
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-k3s"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-k3s"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="K3s" href="/getting-started/kubernetes/k3s/">
+      K3s
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-k3s">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Quickstart" href="/getting-started/kubernetes/k3s/quickstart">
+      Quickstart
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Multi-node install" href="/getting-started/kubernetes/k3s/multi-node-install">
+      Multi-node install
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install with Helm 3" href="/getting-started/kubernetes/helm">
+      Install with Helm 3
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="MicroK8s" href="/getting-started/kubernetes/microk8s">
+      MicroK8s
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Minikube" href="/getting-started/kubernetes/minikube">
+      Minikube
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-calicothehardway"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-calicothehardway"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Calico the hard way" href="/getting-started/kubernetes/hardway/">
+      Calico the hard way
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-calicothehardway">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Introduction" href="/getting-started/kubernetes/hardway/overview">
+      Introduction
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Stand up Kubernetes" href="/getting-started/kubernetes/hardway/standing-up-kubernetes">
+      Stand up Kubernetes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="The Calico datastore" href="/getting-started/kubernetes/hardway/the-calico-datastore">
+      The Calico datastore
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure IP pools" href="/getting-started/kubernetes/hardway/configure-ip-pools">
+      Configure IP pools
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install CNI plugin" href="/getting-started/kubernetes/hardway/install-cni-plugin">
+      Install CNI plugin
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install Typha" href="/getting-started/kubernetes/hardway/install-typha">
+      Install Typha
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install calico/node" href="/getting-started/kubernetes/hardway/install-node">
+      Install calico/node
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure BGP peering" href="/getting-started/kubernetes/hardway/configure-bgp-peering">
+      Configure BGP peering
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Test networking" href="/getting-started/kubernetes/hardway/test-networking">
+      Test networking
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Test network policy" href="/getting-started/kubernetes/hardway/test-network-policy">
+      Test network policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="End user RBAC" href="/getting-started/kubernetes/hardway/end-user-rbac">
+      End user RBAC
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Istio integration" href="/getting-started/kubernetes/hardway/istio-integration">
+      Istio integration
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="System requirements" href="/getting-started/kubernetes/requirements">
+      System requirements
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-kubernetes-vppdataplane"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-kubernetes-vppdataplane"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="VPP dataplane" href="/getting-started/kubernetes/vpp/">
+      VPP dataplane
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-kubernetes-vppdataplane">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Get started with VPP networking" href="/getting-started/kubernetes/vpp/getting-started">
+      Get started with VPP networking
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Enable IPsec encryption between nodes" href="/getting-started/kubernetes/vpp/ipsec">
+      Enable IPsec encryption between nodes
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-openstack"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-openstack"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="OpenStack" href="/getting-started/openstack/">
+      OpenStack
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-openstack">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/getting-started/openstack/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="System requirements" href="/getting-started/openstack/requirements">
+      System requirements
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-openstack-installation"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-openstack-installation"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Installation" href="/getting-started/openstack/installation/">
+      Installation
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-openstack-installation">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/getting-started/openstack/installation/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Ubuntu" href="/getting-started/openstack/installation/ubuntu">
+      Ubuntu
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Red Hat Enterprise Linux" href="/getting-started/openstack/installation/redhat">
+      Red Hat Enterprise Linux
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="DevStack" href="/getting-started/openstack/installation/devstack">
+      DevStack
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Verify your deployment" href="/getting-started/openstack/verification">
+      Verify your deployment
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-non-clusterhosts"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-non-clusterhosts"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Non-cluster hosts" href="/getting-started/bare-metal/">
+      Non-cluster hosts
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-non-clusterhosts">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="About non-cluster hosts" href="/getting-started/bare-metal/about">
+      About non-cluster hosts
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="System requirements" href="/getting-started/bare-metal/requirements">
+      System requirements
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-non-clusterhosts-installation"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-non-clusterhosts-installation"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Installation" href="/getting-started/bare-metal/installation/">
+      Installation
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-non-clusterhosts-installation">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Container install" href="/getting-started/bare-metal/installation/container">
+      Container install
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Binary install with package manager" href="/getting-started/bare-metal/installation/binary-mgr">
+      Binary install with package manager
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Binary install without package manager" href="/getting-started/bare-metal/installation/binary">
+      Binary install without package manager
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-calicoctl"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-calicoctl"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="calicoctl" href="/getting-started/clis/calicoctl/">
+      calicoctl
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-calicoctl">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Install calicoctl" href="/getting-started/clis/calicoctl/install">
+      Install calicoctl
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-getting-started-nav-calicoctl-configurecalicoctl"
+          aria-expanded="false"
+          aria-controls="navbar-getting-started-nav-calicoctl-configurecalicoctl"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Configure calicoctl" href="/getting-started/clis/calicoctl/configure/">
+      Configure calicoctl
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-getting-started-nav-calicoctl-configurecalicoctl">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/getting-started/clis/calicoctl/configure/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure calicoctl to connect to an etcd datastore" href="/getting-started/clis/calicoctl/configure/etcd">
+      Configure calicoctl to connect to an etcd datastore
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure calicoctl to connect to the Kubernetes API datastore" href="/getting-started/clis/calicoctl/configure/kdd">
+      Configure calicoctl to connect to the Kubernetes API datastore
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+                            </div> 
+                          
+                      </div>
+                    </div>
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading"
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-networking-"
+                        aria-controls="navbar-networking-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/networking/" class="navbar-title--not-clickable">
+                              <span>Networking</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-networking-" class="panel-collapse collapse ">
+                          
+                            <div class="panel-body">
+                                
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Determine best networking option" href="/networking/determine-best-networking">
+      Determine best networking option
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-networking-nav-configurenetworking"
+          aria-expanded="false"
+          aria-controls="navbar-networking-nav-configurenetworking"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Configure networking" href="/networking/configuring">
+      Configure networking
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-networking-nav-configurenetworking">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure BGP peering" href="/networking/bgp">
+      Configure BGP peering
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure overlay networking" href="/networking/vxlan-ipip">
+      Configure overlay networking
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Advertise Kubernetes service IP addresses" href="/networking/advertise-service-ips">
+      Advertise Kubernetes service IP addresses
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure MTU to maximize network performance" href="/networking/mtu">
+      Configure MTU to maximize network performance
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure outgoing NAT" href="/networking/workloads-outside-cluster">
+      Configure outgoing NAT
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Use IPVS kube-proxy" href="/networking/use-ipvs">
+      Use IPVS kube-proxy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Accelerate Istio network performance" href="/networking/sidecar-acceleration">
+      Accelerate Istio network performance
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-networking-nav-customizeipaddressmanagement"
+          aria-expanded="false"
+          aria-controls="navbar-networking-nav-customizeipaddressmanagement"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Customize IP address management" href="/networking/ipam">
+      Customize IP address management
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-networking-nav-customizeipaddressmanagement">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Get started with IP address management" href="/networking/get-started-ip-addresses">
+      Get started with IP address management
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure IP autodetection" href="/networking/ip-autodetection">
+      Configure IP autodetection
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure dual stack or IPv6 only" href="/networking/ipv6">
+      Configure dual stack or IPv6 only
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure Kubernetes control plane to operate over IPv6" href="/networking/ipv6-control-plane">
+      Configure Kubernetes control plane to operate over IPv6
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Add a floating IP to a pod" href="/networking/add-floating-ip">
+      Add a floating IP to a pod
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Use specific IP address for a pod" href="/networking/use-specific-ip">
+      Use specific IP address for a pod
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Assign IP addresses based on topology" href="/networking/assign-ip-addresses-topology">
+      Assign IP addresses based on topology
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Migrate from one IP pool to another" href="/networking/migrate-pools">
+      Migrate from one IP pool to another
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Change IP pool block size" href="/networking/change-block-size">
+      Change IP pool block size
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Restrict a pod to use an IP address in a specific range" href="/networking/legacy-firewalls">
+      Restrict a pod to use an IP address in a specific range
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-networking-nav-caliconetworkingforopenstack"
+          aria-expanded="false"
+          aria-controls="navbar-networking-nav-caliconetworkingforopenstack"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Calico networking for OpenStack" href="/networking/openstack/">
+      Calico networking for OpenStack
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-networking-nav-caliconetworkingforopenstack">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Set up a development machine" href="/networking/openstack/dev-machine-setup">
+      Set up a development machine
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Prepare a VM guest OS for IPv6" href="/networking/openstack/ipv6">
+      Prepare a VM guest OS for IPv6
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="IP addressing and connectivity" href="/networking/openstack/connectivity">
+      IP addressing and connectivity
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Endpoint labels and operator policy" href="/networking/openstack/labels">
+      Endpoint labels and operator policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure systems for use with Calico" href="/networking/openstack/configuration">
+      Configure systems for use with Calico
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Detailed semantics" href="/networking/openstack/semantics">
+      Detailed semantics
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Floating IPs" href="/networking/openstack/floating-ips">
+      Floating IPs
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Service IPs" href="/networking/openstack/service-ips">
+      Service IPs
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Host routes" href="/networking/openstack/host-routes">
+      Host routes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Multiple regions" href="/networking/openstack/multiple-regions">
+      Multiple regions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kuryr" href="/networking/openstack/kuryr">
+      Kuryr
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Calico's interpretation of Neutron API calls" href="/networking/openstack/neutron-api">
+      Calico's interpretation of Neutron API calls
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-networking-nav-calicoenterprise"
+          aria-expanded="false"
+          aria-controls="navbar-networking-nav-calicoenterprise"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Calico Enterprise" href="/networking/calico-enterprise/">
+      Calico Enterprise
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-networking-nav-calicoenterprise">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Network visibility" href="/networking/calico-enterprise/network-visibility">
+      Network visibility
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Federation" href="/networking/calico-enterprise/federation">
+      Federation
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="User console" href="/networking/calico-enterprise/user-console">
+      User console
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+                            </div> 
+                          
+                      </div>
+                    </div>
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading"
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-security-"
+                        aria-controls="navbar-security-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/security/" class="navbar-title--not-clickable">
+                              <span>Security</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-security-" class="panel-collapse collapse ">
+                          
+                            <div class="panel-body">
+                                
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Adopt a zero trust network model for security" href="/security/adopt-zero-trust">
+      Adopt a zero trust network model for security
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-getstartedwithpolicy"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-getstartedwithpolicy"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Get started with policy" href="/security/get-started">
+      Get started with policy
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-getstartedwithpolicy">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-getstartedwithpolicy-calicopolicy"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-getstartedwithpolicy-calicopolicy"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Calico policy" href="/security/calico-policy">
+      Calico policy
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-getstartedwithpolicy-calicopolicy">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Get started with Calico network policy" href="/security/calico-network-policy">
+      Get started with Calico network policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Get started with Calico network policy for OpenStack" href="/security/network-policy-openstack">
+      Get started with Calico network policy for OpenStack
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Calico policy tutorial" href="/security/tutorials/calico-policy">
+      Calico policy tutorial
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-getstartedwithpolicy-kubernetespolicy"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-getstartedwithpolicy-kubernetespolicy"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Kubernetes policy" href="/security/kubernetes-policy">
+      Kubernetes policy
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-getstartedwithpolicy-kubernetespolicy">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Get started with Kubernetes network policy" href="/security/kubernetes-network-policy">
+      Get started with Kubernetes network policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes policy, demo" href="/security/tutorials/kubernetes-policy-demo/kubernetes-demo">
+      Kubernetes policy, demo
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes policy, basic tutorial" href="/security/tutorials/kubernetes-policy-basic">
+      Kubernetes policy, basic tutorial
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes policy, advanced tutorial" href="/security/tutorials/kubernetes-policy-advanced">
+      Kubernetes policy, advanced tutorial
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Enable default deny" href="/security/kubernetes-default-deny">
+      Enable default deny
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-policyrules"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-policyrules"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Policy rules" href="/security/policy-rules">
+      Policy rules
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-policyrules">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Basic rules" href="/security/policy-rules-overview">
+      Basic rules
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Namespace rules" href="/security/namespace-policy">
+      Namespace rules
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Service rules" href="/security/service-policy">
+      Service rules
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Service accounts rules" href="/security/service-accounts">
+      Service accounts rules
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="External IPs or networks rules" href="/security/external-ips-policy">
+      External IPs or networks rules
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="ICMP/ping rules" href="/security/icmp-ping">
+      ICMP/ping rules
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-policyforhosts"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-policyforhosts"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Policy for hosts" href="/security/hosts">
+      Policy for hosts
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-policyforhosts">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Protect hosts" href="/security/protect-hosts">
+      Protect hosts
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Protect Kubernetes nodes" href="/security/kubernetes-nodes">
+      Protect Kubernetes nodes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Protect host tutorial" href="/security/tutorials/protect-hosts">
+      Protect host tutorial
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Apply policy to host forwarded traffic" href="/security/host-forwarded-traffic">
+      Apply policy to host forwarded traffic
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-policyforservices"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-policyforservices"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Policy for services" href="/security/services">
+      Policy for services
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-policyforservices">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Apply policy to Kubernetes node ports" href="/security/kubernetes-node-ports">
+      Apply policy to Kubernetes node ports
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Apply policy to services exposed externally as cluster IPs" href="/security/services-cluster-ips">
+      Apply policy to services exposed externally as cluster IPs
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-policyforistio"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-policyforistio"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Policy for Istio" href="/security/istio">
+      Policy for Istio
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-policyforistio">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Enforce network policy for Istio" href="/security/app-layer-policy">
+      Enforce network policy for Istio
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Use HTTP methods and paths in policy rules" href="/security/http-methods">
+      Use HTTP methods and paths in policy rules
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Enforce network policy using Istio tutorial" href="/security/tutorials/app-layer-policy/enforce-policy-istio">
+      Enforce network policy using Istio tutorial
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-policyforextremetraffic"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-policyforextremetraffic"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Policy for extreme traffic" href="/security/extreme-traffic">
+      Policy for extreme traffic
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-policyforextremetraffic">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Enable extreme high-connection workloads" href="/security/high-connection-workloads">
+      Enable extreme high-connection workloads
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Defend against DoS attacks" href="/security/defend-dos-attack">
+      Defend against DoS attacks
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Encrypt in-cluster pod traffic" href="/security/encrypt-cluster-pod-traffic">
+      Encrypt in-cluster pod traffic
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-securecalicocomponentcommunications"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-securecalicocomponentcommunications"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Secure Calico component communications" href="/security/comms/">
+      Secure Calico component communications
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-securecalicocomponentcommunications">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configure encryption and authentication" href="/security/comms/crypto-auth">
+      Configure encryption and authentication
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Schedule Typha to well-known-nodes" href="/security/comms/reduce-nodes">
+      Schedule Typha to well-known-nodes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Secure Calico Prometheus endpoints" href="/security/comms/secure-metrics">
+      Secure Calico Prometheus endpoints
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Secure BGP sessions" href="/security/comms/secure-bgp">
+      Secure BGP sessions
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-security-nav-calicoenterprise"
+          aria-expanded="false"
+          aria-controls="navbar-security-nav-calicoenterprise"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Calico Enterprise" href="/security/calico-enterprise/">
+      Calico Enterprise
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-security-nav-calicoenterprise">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Network visibility" href="/security/calico-enterprise/network-visibility">
+      Network visibility
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Advanced egress access controls" href="/security/calico-enterprise/egress-access-controls">
+      Advanced egress access controls
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Advanced compliance controls" href="/security/calico-enterprise/compliance">
+      Advanced compliance controls
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Federation" href="/security/calico-enterprise/federation">
+      Federation
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Threat defense" href="/security/calico-enterprise/threat-defense">
+      Threat defense
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="User console" href="/security/calico-enterprise/user-console">
+      User console
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Policy workflow" href="/security/calico-enterprise/policy-workflow">
+      Policy workflow
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+                            </div> 
+                          
+                      </div>
+                    </div>
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading"
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-maintenance-"
+                        aria-controls="navbar-maintenance-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/maintenance/" class="navbar-title--not-clickable">
+                              <span>Operations</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-maintenance-" class="panel-collapse collapse ">
+                          
+                            <div class="panel-body">
+                                
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-maintenance-nav-upgrade"
+          aria-expanded="false"
+          aria-controls="navbar-maintenance-nav-upgrade"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Upgrade" href="/maintenance/upgrading">
+      Upgrade
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-maintenance-nav-upgrade">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes" href="/maintenance/kubernetes-upgrade">
+      Kubernetes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="OpenShift" href="/maintenance/openshift-upgrade">
+      OpenShift
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="OpenStack" href="/maintenance/openstack-upgrade">
+      OpenStack
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-maintenance-nav-deployimageoptions"
+          aria-expanded="false"
+          aria-controls="navbar-maintenance-nav-deployimageoptions"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Deploy image options" href="/maintenance/image-options/">
+      Deploy image options
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-maintenance-nav-deployimageoptions">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Deploy images by digest" href="/maintenance/image-options/imageset">
+      Deploy images by digest
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Migrate datastore from etcd to Kubernetes" href="/maintenance/datastore-migration">
+      Migrate datastore from etcd to Kubernetes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Migrate Calico to an operator-managed installation" href="/maintenance/operator-migration">
+      Migrate Calico to an operator-managed installation
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Enable kubectl to manage Calico APIs" href="/maintenance/install-apiserver">
+      Enable kubectl to manage Calico APIs
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-maintenance-nav-theebpfdataplane"
+          aria-expanded="false"
+          aria-controls="navbar-maintenance-nav-theebpfdataplane"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="The eBPF dataplane" href="/maintenance/ebpf/">
+      The eBPF dataplane
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-maintenance-nav-theebpfdataplane">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Enable the eBPF dataplane" href="/maintenance/ebpf/enabling-bpf">
+      Enable the eBPF dataplane
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="eBPF on EKS" href="/maintenance/ebpf/ebpf-and-eks">
+      eBPF on EKS
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Troubleshooting" href="/maintenance/troubleshoot/troubleshoot-ebpf">
+      Troubleshooting
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-maintenance-nav-monitor"
+          aria-expanded="false"
+          aria-controls="navbar-maintenance-nav-monitor"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Monitor" href="/maintenance/monitor/">
+      Monitor
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-maintenance-nav-monitor">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Monitor component metrics" href="/maintenance/monitor/monitor-component-metrics">
+      Monitor component metrics
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Visualize component metrics" href="/maintenance/monitor/monitor-component-visual">
+      Visualize component metrics
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Remove nodes from a cluster" href="/maintenance/decommissioning-a-node">
+      Remove nodes from a cluster
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-maintenance-nav-troubleshoot"
+          aria-expanded="false"
+          aria-controls="navbar-maintenance-nav-troubleshoot"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Troubleshoot" href="/maintenance/troubleshoot/">
+      Troubleshoot
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-maintenance-nav-troubleshoot">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Troubleshoot" href="/maintenance/troubleshoot/troubleshooting">
+      Troubleshoot
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Component logs" href="/maintenance/troubleshoot/component-logs">
+      Component logs
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="eBPF Dataplane" href="/maintenance/troubleshoot/troubleshoot-ebpf">
+      eBPF Dataplane
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="VPP dataplane troubleshooting" href="/maintenance/troubleshoot/vpp">
+      VPP dataplane troubleshooting
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Certificate Management" href="/maintenance/certificate-management">
+      Certificate Management
+    </a>
+  
+    </div>
+  
+
+
+                            </div> 
+                          
+                      </div>
+                    </div>
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading"
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-reference-"
+                        aria-controls="navbar-reference-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/reference/" class="navbar-title--not-clickable">
+                              <span>Reference</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-reference-" class="panel-collapse collapse ">
+                          
+                            <div class="panel-body">
+                                
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="API" href="/reference/api">
+      API
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Installation" href="/reference/installation/api">
+      Installation
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-calicoctl"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-calicoctl"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="calicoctl" href="/reference/calicoctl/">
+      calicoctl
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-calicoctl">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/calicoctl/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="create" href="/reference/calicoctl/create">
+      create
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="replace" href="/reference/calicoctl/replace">
+      replace
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="apply" href="/reference/calicoctl/apply">
+      apply
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="delete" href="/reference/calicoctl/delete">
+      delete
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="get" href="/reference/calicoctl/get">
+      get
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="patch" href="/reference/calicoctl/patch">
+      patch
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="label" href="/reference/calicoctl/label">
+      label
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="convert" href="/reference/calicoctl/convert">
+      convert
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-calicoctl-ipam"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-calicoctl-ipam"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="ipam" href="/reference/calicoctl/ipam/">
+      ipam
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-calicoctl-ipam">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/calicoctl/ipam/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="check" href="/reference/calicoctl/ipam/check">
+      check
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="release" href="/reference/calicoctl/ipam/release">
+      release
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="show" href="/reference/calicoctl/ipam/show">
+      show
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="configure" href="/reference/calicoctl/ipam/configure">
+      configure
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-calicoctl-node"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-calicoctl-node"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="node" href="/reference/calicoctl/node/">
+      node
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-calicoctl-node">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/calicoctl/node/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="run" href="/reference/calicoctl/node/run">
+      run
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="status" href="/reference/calicoctl/node/status">
+      status
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="diags" href="/reference/calicoctl/node/diags">
+      diags
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="checksystem" href="/reference/calicoctl/node/checksystem">
+      checksystem
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-calicoctl-datastore"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-calicoctl-datastore"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="datastore" href="/reference/calicoctl/datastore/">
+      datastore
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-calicoctl-datastore">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/calicoctl/datastore/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-calicoctl-datastore-migrate"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-calicoctl-datastore-migrate"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Migrate" href="/reference/calicoctl/datastore/migrate/">
+      Migrate
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-calicoctl-datastore-migrate">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/calicoctl/datastore/migrate/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="export" href="/reference/calicoctl/datastore/migrate/export">
+      export
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="import" href="/reference/calicoctl/datastore/migrate/import">
+      import
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="lock" href="/reference/calicoctl/datastore/migrate/lock">
+      lock
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="unlock" href="/reference/calicoctl/datastore/migrate/unlock">
+      unlock
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="version" href="/reference/calicoctl/version">
+      version
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-resourcedefinitions"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-resourcedefinitions"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Resource definitions" href="/reference/resources/">
+      Resource definitions
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-resourcedefinitions">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/resources/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="BGP configuration" href="/reference/resources/bgpconfig">
+      BGP configuration
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="BGP peer" href="/reference/resources/bgppeer">
+      BGP peer
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Felix configuration" href="/reference/resources/felixconfig">
+      Felix configuration
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Global network policy" href="/reference/resources/globalnetworkpolicy">
+      Global network policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Global network set" href="/reference/resources/globalnetworkset">
+      Global network set
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Host endpoint" href="/reference/resources/hostendpoint">
+      Host endpoint
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="IP pool" href="/reference/resources/ippool">
+      IP pool
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Kubernetes controllers configuration" href="/reference/resources/kubecontrollersconfig">
+      Kubernetes controllers configuration
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Network policy" href="/reference/resources/networkpolicy">
+      Network policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Network set" href="/reference/resources/networkset">
+      Network set
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Node" href="/reference/resources/node">
+      Node
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Profile" href="/reference/resources/profile">
+      Profile
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Workload endpoint" href="/reference/resources/workloadendpoint">
+      Workload endpoint
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-configuringetcdrbac"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-configuringetcdrbac"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Configuring etcd RBAC" href="/reference/etcd-rbac/">
+      Configuring etcd RBAC
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-configuringetcdrbac">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/etcd-rbac/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Generating certificates" href="/reference/etcd-rbac/certificate-generation">
+      Generating certificates
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Creating users and roles" href="/reference/etcd-rbac/users-and-roles">
+      Creating users and roles
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Segmenting etcd on Kubernetes (basic)" href="/reference/etcd-rbac/kubernetes">
+      Segmenting etcd on Kubernetes (basic)
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Segmenting etcd on Kubernetes (advanced)" href="/reference/etcd-rbac/kubernetes-advanced">
+      Segmenting etcd on Kubernetes (advanced)
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Calico key and path prefixes" href="/reference/etcd-rbac/calico-etcdv3-paths">
+      Calico key and path prefixes
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="calico/node" href="/reference/node/configuration">
+      calico/node
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-felix"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-felix"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Felix" href="/reference/felix/">
+      Felix
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-felix">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configuration" href="/reference/felix/configuration">
+      Configuration
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Prometheus statistics" href="/reference/felix/prometheus">
+      Prometheus statistics
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-typha"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-typha"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Typha" href="/reference/typha/">
+      Typha
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-typha">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/typha/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configuration" href="/reference/typha/configuration">
+      Configuration
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Prometheus statistics" href="/reference/typha/prometheus">
+      Prometheus statistics
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Dikastes" href="/reference/dikastes/configuration">
+      Dikastes
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Calico CNI plugins" href="/reference/cni-plugin/configuration">
+      Calico CNI plugins
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-calicokubernetescontrollers"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-calicokubernetescontrollers"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Calico Kubernetes controllers" href="/reference/kube-controllers/">
+      Calico Kubernetes controllers
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-calicokubernetescontrollers">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Configuration" href="/reference/kube-controllers/configuration">
+      Configuration
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Prometheus statistics" href="/reference/kube-controllers/prometheus">
+      Prometheus statistics
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-configurationonpublicclouds"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-configurationonpublicclouds"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Configuration on public clouds" href="/reference/public-cloud/">
+      Configuration on public clouds
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-configurationonpublicclouds">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Amazon Web Services" href="/reference/public-cloud/aws">
+      Amazon Web Services
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Azure" href="/reference/public-cloud/azure">
+      Azure
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Google Compute Engine" href="/reference/public-cloud/gce">
+      Google Compute Engine
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="IBM Cloud" href="/reference/public-cloud/ibm">
+      IBM Cloud
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-hostendpoints"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-hostendpoints"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Host endpoints" href="/reference/host-endpoints/">
+      Host endpoints
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-hostendpoints">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Overview" href="/reference/host-endpoints/overview">
+      Overview
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Creating policy for basic connectivity" href="/reference/host-endpoints/connectivity">
+      Creating policy for basic connectivity
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Creating host endpoint objects" href="/reference/host-endpoints/objects">
+      Creating host endpoint objects
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Selector-based policies" href="/reference/host-endpoints/selector">
+      Selector-based policies
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Failsafe rules" href="/reference/host-endpoints/failsafe">
+      Failsafe rules
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Pre-DNAT policy" href="/reference/host-endpoints/pre-dnat">
+      Pre-DNAT policy
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Apply on forwarded traffic" href="/reference/host-endpoints/forwarded">
+      Apply on forwarded traffic
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Summary" href="/reference/host-endpoints/summary">
+      Summary
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Connection tracking" href="/reference/host-endpoints/conntrack">
+      Connection tracking
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-architecture"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-architecture"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Architecture" href="/reference/architecture/">
+      Architecture
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-architecture">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Component architecture" href="/reference/architecture/overview">
+      Component architecture
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Data path" href="/reference/architecture/data-path">
+      Data path
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-architecture-networkdesign"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-architecture-networkdesign"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Network design" href="/reference/architecture/design/">
+      Network design
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-architecture-networkdesign">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Calico over Ethernet fabrics" href="/reference/architecture/design/l2-interconnect-fabric">
+      Calico over Ethernet fabrics
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Calico over IP fabrics" href="/reference/architecture/design/l3-interconnect-fabric">
+      Calico over IP fabrics
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-vppdataplane"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-vppdataplane"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="VPP dataplane" href="/reference/vpp/">
+      VPP dataplane
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-vppdataplane">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Uplink interface configuration" href="/reference/vpp/uplink-configuration">
+      Uplink interface configuration
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Integration architecture" href="/reference/vpp/technical-details">
+      Integration architecture
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Host network configuration" href="/reference/vpp/host-network">
+      Host network configuration
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Frequently asked questions" href="/reference/faq">
+      Frequently asked questions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Getting involved" href="/reference/involved">
+      Getting involved
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    <div>
+      <div class="link">
+        <span
+          role="button"
+          data-toggle="collapse"
+          data-target="#navbar-reference-nav-attributions"
+          aria-expanded="false"
+          aria-controls="navbar-reference-nav-attributions"
+          class="glyphicon glyphicon-chevron-right navbar-arrow"
+        ></span>
+        
+    <a class="item" data-title="Attributions" href="/reference/legal/">
+      Attributions
+    </a>
+  
+      </div>
+      <div class="section">
+        <div class="collapse" id="navbar-reference-nav-attributions">
+          
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Application layer policy attributions" href="/reference/legal/alp">
+      Application layer policy attributions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="calicoctl attributions" href="/reference/legal/calicoctl">
+      calicoctl attributions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="CNI plugin attributions" href="/reference/legal/cni">
+      CNI plugin attributions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="confd attributions" href="/reference/legal/confd">
+      confd attributions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Felix attributions" href="/reference/legal/felix">
+      Felix attributions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="calico/node attributions" href="/reference/legal/node">
+      calico/node attributions
+    </a>
+  
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="link">
+      
+    <a class="item" data-title="Typha attributions" href="/reference/legal/typha">
+      Typha attributions
+    </a>
+  
+    </div>
+  
+
+
+        </div>
+      </div>
+    </div>
+  
+
+
+                            </div> 
+                          
+                      </div>
+                    </div>
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading"
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-release-notes-"
+                        aria-controls="navbar-release-notes-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/release-notes/" class="navbar-title--clickable">
+                              <span>Release notes</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-release-notes-" class="panel-collapse collapse ">
+                          
+                      </div>
+                    </div>
+                  
+                    
+                    <div class="panel panel-default">
+                      <div
+                        class="panel-heading"
+                        role="button"
+                        data-toggle="collapse"
+                        data-target="#navbar-calico-enterprise-"
+                        aria-controls="navbar-calico-enterprise-"
+                      >
+                        <h4 class="panel-title">
+                            <a href="/calico-enterprise/" class="navbar-title--clickable">
+                              <span>Calico Enterprise</span>
+                            </a>
+                        </h4>
+                      </div>
+                      
+                      
+                      <div id="navbar-calico-enterprise-" class="panel-collapse collapse ">
+                          
+                      </div>
+                    </div>
+                  
+                  <div class="panel panel-default">
+                    <div class="panel-heading free-training" role="button" aria-controls="navbar-free-training">
+                      <h4 class="panel-title">
+                        <a href="https://www.tigera.io/free-training-resources" target="_blank" rel="noopener noreferrer" class="navbar-title--clickable">
+                          <span>Free training</span>
+                        </a>
+                      </h4>
+                    </div>                    
+                  </div>                  
+                </div>
+                <div class="row">
+                  <div class="col-sm-0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="article-container">
+            <div id="content-main">
+              <p class="visible-xs clearfix">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+              </p>
+              <!-- TOP DOCUMENTATION PAGE NAVBAR -->
+              
+              <!-- END TOP DOCUMENTATION PAGE NAVBAR -->
+              <nav class="breadcrumbs bootstrap hidden-sm-down">
+  
+                  <a data-proofer-ignore href="https://github.com/projectcalico/calico/tree/master/getting-started/kubernetes/index.md" class="edit-page-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    Edit this page
+                  </a>
+              
+  <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+    
+      
+
+      
+
+      <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+          <a property="item" typeof="WebPage" href="/getting-started/">
+            <span property="name">INSTALL CALICO</span>
+            <meta property="position" content="1" />
+          </a>
+      </li>
+    
+      
+
+      
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+          <span property="name">KUBERNETES</span>
+          <meta property="position" content="2" />
+        </li>
+        
+
+  </ol>
+</nav>
+
+
+              
+
+              <h1>Kubernetes</h1>
+              <!-- TODO [turk]: uncomment once JS supports a different identifier besides ID so that we don't have two elements with the same ID
+              <div class="visible-xs visible-sm">
+                
+              </div>
+               -->
+              <p>Get Calico up and running in your Kubernetes cluster.</p>
+
+<div class="section-index">
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/quickstart">
+Quickstart
+</a>
+</div>
+<p>
+
+Install Calico on a single-host Kubernetes cluster for testing or development in under 15 minutes.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/managed-public-cloud/">
+Managed public cloud
+</a>
+</div>
+<p>
+
+Enable Calico on EKS, GKE, AKS, or IKS.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/self-managed-public-cloud/">
+Self-managed public cloud
+</a>
+</div>
+<p>
+
+Manage your own Kubernetes clusters in AWS, GCE, or Azure public clouds.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/self-managed-onprem/">
+Self-managed on-premises
+</a>
+</div>
+<p>
+
+Install Calico for on-premises deployments to provide networking and network policy, in either overlay or non-overlay networking modes.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/openshift/">
+OpenShift
+</a>
+</div>
+<p>
+
+Install Calico on OpenShift for networking and network policy.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/flannel/">
+Flannel
+</a>
+</div>
+<p>
+
+Use Calico network policy on top of flannel networking.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/windows-calico/">
+Calico for Windows
+</a>
+</div>
+<p>
+
+Install and configure Calico for Windows.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/k3s/">
+K3s
+</a>
+</div>
+<p>
+
+Get Calico up and running in your K3s cluster.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/helm">
+Install with Helm 3
+</a>
+</div>
+<p>
+
+Install Calico on a Kubernetes cluster using Helm 3.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/microk8s">
+MicroK8s
+</a>
+</div>
+<p>
+
+Install Calico on a single-host MicroK8s cluster for testing or development in under 5 minutes.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/minikube">
+Minikube
+</a>
+</div>
+<p>
+
+Enable Calico on a single/multi-node minikube cluster for testing or development in under 1 minute.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/hardway/">
+Calico the hard way
+</a>
+</div>
+<p>
+
+Up for the challenge? Calico the hard way takes you under the covers of an end-to-end Calico installation.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/requirements">
+System requirements
+</a>
+</div>
+<p>
+
+Review requirements before installing Calico to ensure success.
+</p>
+</div>
+
+
+<div class="section-index__item">
+<div class="section-index__title">
+<a href="/getting-started/kubernetes/vpp/">
+VPP dataplane
+</a>
+</div>
+<p>
+
+Install the VPP userspace dataplane to unlock extra performance for your cluster!
+</p>
+</div>
+
+</div>
+
+
+              <!-- BOTTOM DOCUMENTATION PAGE NAVBAR -->
+              <div style="margin-top: 60px; margin-bottom: 40px; padding-top: 20px; border-top: 1px solid #999; text-align: left; color: #999;">
+                <a href="https://slack.projectcalico.org/" style="margin-left: 30px; color: #999; text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa fa-slack" aria-hidden="true"></i>&nbsp;Slack</a>
+                <a href="https://discuss.projectcalico.org/" style="margin-left: 30px; color: #999; text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;Discourse</a>
+                <a href="https://github.com/projectcalico/calico" style="margin-left: 30px; color: #999; text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i>&nbsp;GitHub</a>
+                <a href="https://twitter.com/projectcalico" style="margin-left: 30px; color: #999; text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+                <a href="https://www.youtube.com/channel/UCFpTnXDNcBoXI4gqCDmegFA" style="margin-left: 30px; color: #999; text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa fa-youtube-play" aria-hidden="true"></i>&nbsp;YouTube</a>
+                <a href="https://www.tigera.io/events/" style="margin-left: 30px; color: #999; text-decoration: none;" target="_blank" rel="noopener noreferrer"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Free Online Training</a>
+              </div>
+              <!-- END BOTTOM DOCUMENTATION PAGE NAVBAR -->
+            </div>
+          </div>
+          </div>
+      </div>
+    </section>
+    <script src="/js/searchConfig.js"></script>
+    
+    <script>
+      $(document).ready(function() {
+        window.initializeSearch('v3.20', '.search-powered-by', '.search-input-container', '.search-container', '.search-container__results', '.search-container__pagination');
+      });
+    </script>
+  </body>
+</html>
+
